@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0F0F0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .client, .server {
+            border: 1px solid black;
+            padding: 10px;
+            width: 300px;
+            margin: 10px;
+            color: white;
+            position: relative;
+        }
+
+        .client {
+            background-color: rgb(4, 48, 89);
+        }
+
+        .server {
+            background-color: rgb(5, 104, 38);
+        }
+
+        textarea {
+            width: calc(100% - 20px);
+            height: 100px;
+            padding: 10px;
+            resize: none;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        .icon {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: white;
+        }
+    </style>
+    <title>ASK TO PROFESSIONAL</title>
+</head>
+<body>
+
+<div class="center">
+    <div class="title">ASK TO PROFESSIONAL</div>
+    <div class="client">
+        <h3>Client: Farmer</h3>
+        <i class="icon fas fa-user"></i>
+        <textarea id="farmer_message" placeholder="Ask a question here..."></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <div class="server">
+        <h3>Server: Replier</h3>
+        <i class="icon fas fa-reply"></i>
+        <textarea id="replier_message" placeholder="Answer will appear here..." readonly></textarea>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        var farmer_message = document.getElementById("farmer_message").value;
+        if (farmer_message.toLowerCase() === "hi") {
+            document.getElementById("replier_message").value = "Hello! How are you?";
+        } else if (farmer_message.toLowerCase() === "what's your name?") {
+            document.getElementById("replier_message").value = "My name is John, a knowledgeable replier!";
+        } else {
+            document.getElementById("replier_message").value = "Received! Let me check and get back to you...";
+        }
+    }
+</script>
+
+</body>
+</html>
